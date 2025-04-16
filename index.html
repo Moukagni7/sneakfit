@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SneakFit - Votre boutique en ligne spécialisée dans les sneakers tendance et les vêtements de sport de qualité">
+    <title>SneakFit - Sneakers et Vêtements de Sport</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Sneak<span>Fit</span></h1>
+                </a>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="boutique.html">Produits</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="user-icon" id="userIcon"><i class="fas fa-user"></i></a>
+                <div class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulaire de connexion (caché par défaut) -->
+        <div class="login-form-container" id="loginFormContainer" style="display: none;">
+            <div class="login-form">
+                <span class="close-login">&times;</span>
+                <h3>Connexion</h3>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Mot de passe</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn">Se connecter</button>
+                    <p class="register-link">Pas encore de compte ? <a href="#" id="showRegister">S'inscrire</a></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Formulaire d'inscription (caché par défaut) -->
+        <div class="register-form-container" id="registerFormContainer" style="display: none;">
+            <div class="register-form">
+                <span class="close-register">&times;</span>
+                <h3>Inscription</h3>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Nom complet</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Mot de passe</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <button type="submit" class="btn">S'inscrire</button>
+                    <p class="login-link">Déjà un compte ? <a href="#" id="showLogin">Se connecter</a></p>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Style. Performance. Passion.</h2>
+                <p>Découvrez notre collection exclusive de sneakers et vêtements de sport pour exprimer votre style et maximiser vos performances.</p>
+                <a href="boutique.html" class="btn btn-primary">Découvrir la collection</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-categories">
+        <div class="container">
+            <h2 class="section-title">Nos Catégories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="images/jordan4.jpg" alt="Sneakers">
+                    <div class="category-info">
+                        <h3>Sneakers</h3>
+                        <a href="boutique.html?category=sneakers" class="btn btn-outline">Explorer</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="images/sneakers2.jpg" alt="Running">
+                    <div class="category-info">
+                        <h3>Running</h3>
+                        <a href="boutique.html?category=running" class="btn btn-outline">Explorer</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="images/Maillot 2.jpg" alt="Vêtements de sport">
+                    <div class="category-info">
+                        <h3>Vêtements</h3>
+                        <a href="boutique.html?category=vetements" class="btn btn-outline">Explorer</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="images/sac 3.jpg" alt="Accessoires">
+                    <div class="category-info">
+                        <h3>Accessoires</h3>
+                        <a href="boutique.html?category=accessories" class="btn btn-outline">Explorer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trending-products">
+        <div class="container">
+            <h2 class="section-title">Tendances du moment</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Nouveau</div>
+                    <img src="images/nike1.jpg" alt="Sneakers Nike Air Max">
+                    <div class="product-info">
+                        <h3>Nike Air Jordan</h3>
+                        <p class="product-category">Sneakers</p>
+                        <div class="product-price">25000 Fcfa</div>
+                        <div class="product-actions">
+                            <a href="produit.html?id=1" class="btn btn-outline">Détails</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge bestseller">Best-seller</div>
+                    <img src="images/adidas2.jpg" alt="Adidas Ultraboost">
+                    <div class="product-info">
+                        <h3>Adidas Campus</h3>
+                        <p class="product-category">Sneakers</p>
+                        <div class="product-price">20000 Fcfa</div>
+                        <div class="product-actions">
+                            <a href="produit.html?id=2" class="btn btn-outline">Détails</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/jordans3.jpg" alt="T-shirt technique">
+                    <div class="product-info">
+                        <h3>T-shirt Performance</h3>
+                        <p class="product-category">Vêtements</p>
+                        <div class="product-price">7000 Fcfa</div>
+                        <div class="product-actions">
+                            <a href="produit.html?id=3" class="btn btn-outline">Détails</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge sale">-50%</div>
+                    <img src="images/puma1.jpg" alt="Puma RSX">
+                    <div class="product-info">
+                        <h3>Puma RS-X</h3>
+                        <p class="product-category">Sneakers</p>
+                        <div class="product-price"><span class="original-price">30000 Fcfa</span> 15000 Fcfa</div>
+                        <div class="product-actions">
+                            <a href="produit.html?id=4" class="btn btn-outline">Détails</a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-container">
+                <a href="boutique.html" class="btn btn-secondary">Voir tous les produits</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-spotlight">
+        <div class="container">
+            <h2 class="section-title">Nos marques partenaires</h2>
+            <div class="brands-slider">
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Adidas_logo.png" alt="Adidas">
+                </div>
+             
+                
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/37/Jumpman_logo.svg" alt="Jordan">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Restez informé</h2>
+            <p>Abonnez-vous à notre newsletter pour recevoir les dernières offres.</p>
+            <form class="newsletter-form" action="https://formsubmit.co/sneakfit7@gmail.com" method="POST">
+                <input name="name" type="email" placeholder="Votre email" required>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SneakFit</h3>
+                    <p>Votre destination pour des sneakers de qualité et des vêtements de sport performants.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="boutique.html">Boutique</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="boutique.html?category=sneakers">Sneakers</a></li>
+                        <li><a href="boutique.html?category=running">Running</a></li>
+                        <li><a href="boutique.html?category=vetements">Vêtements</a></li>
+                        <li><a href="boutique.html?category=accessories">Accessoires</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Aide & Informations</h3>
+                    <ul>
+                        <li><a href="#">Livraison & Retours</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SneakFit. Tous droits réservés.</p>
+               
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Système d'authentification avec localStorage pour SneakFit
+    document.addEventListener('DOMContentLoaded', function() {
+    // Éléments DOM
+    const userIcon = document.getElementById('userIcon');
+    const loginFormContainer = document.getElementById('loginFormContainer');
+    const registerFormContainer = document.getElementById('registerFormContainer');
+    const closeLogin = document.querySelector('.close-login');
+    const closeRegister = document.querySelector('.close-register');
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+    
+    // Formulaires
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    
+    // Affichage du formulaire de connexion
+    userIcon.addEventListener('click', function(e) {
+        e.preventDefault();
+        loginFormContainer.style.display = 'flex';
+        registerFormContainer.style.display = 'none';
+    });
+    
+    // Fermeture des formulaires
+    closeLogin.addEventListener('click', function() {
+        loginFormContainer.style.display = 'none';
+        clearAllErrors(loginForm);
+        loginForm.reset();
+    });
+    
+    closeRegister.addEventListener('click', function() {
+        registerFormContainer.style.display = 'none';
+        clearAllErrors(registerForm);
+        registerForm.reset();
+    });
+    
+    // Basculer entre connexion et inscription
+    showRegister.addEventListener('click', function(e) {
+        e.preventDefault();
+        loginFormContainer.style.display = 'none';
+        registerFormContainer.style.display = 'flex';
+        clearAllErrors(loginForm);
+        loginForm.reset();
+    });
+    
+    showLogin.addEventListener('click', function(e) {
+        e.preventDefault();
+        registerFormContainer.style.display = 'none';
+        loginFormContainer.style.display = 'flex';
+        clearAllErrors(registerForm);
+        registerForm.reset();
+    });
+    
+    // Fermer en cliquant à l'extérieur
+    window.addEventListener('click', function(e) {
+        if (e.target === loginFormContainer) {
+            loginFormContainer.style.display = 'none';
+            clearAllErrors(loginForm);
+            loginForm.reset();
+        }
+        if (e.target === registerFormContainer) {
+            registerFormContainer.style.display = 'none';
+            clearAllErrors(registerForm);
+            registerForm.reset();
+        }
+    });
+    
+    // Fonctions pour la validation et la gestion des erreurs
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+    
+    function validatePassword(password) {
+        // Minimum 6 caractères
+        return password.length >= 6;
+    }
+    
+    function showError(element, message) {
+        const parentElement = element.parentElement;
+        let errorElement = parentElement.querySelector('.error-message');
+        
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            parentElement.appendChild(errorElement);
+        }
+        
+        errorElement.textContent = message;
+        element.classList.add('input-error');
+    }
+    
+    function clearError(element) {
+        if (!element) return;
+        
+        const parentElement = element.parentElement;
+        const errorElement = parentElement.querySelector('.error-message');
+        
+        if (errorElement) {
+            parentElement.removeChild(errorElement);
+        }
+        
+        element.classList.remove('input-error');
+    }
+    
+    function clearAllErrors(form) {
+        const inputs = form.querySelectorAll('input');
+        inputs.forEach(input => clearError(input));
+    }
+    
+    // Création d'un token simple
+    function generateToken() {
+        return Math.random().toString(36).substring(2, 15) + 
+               Math.random().toString(36).substring(2, 15);
+    }
+    
+    // Hachage simple (pour démonstration uniquement)
+    function simpleHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash;
+        }
+        return hash.toString(16);
+    }
+    
+    // Traitement du formulaire d'inscription
+    registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearAllErrors(this);
+        
+        const registerName = document.getElementById('registerName');
+        const registerEmail = document.getElementById('registerEmail');
+        const registerPassword = document.getElementById('registerPassword');
+        
+        // Validation des champs
+        let isValid = true;
+        
+        if (!registerName.value.trim()) {
+            showError(registerName, 'Le nom est requis');
+            isValid = false;
+        }
+        
+        if (!validateEmail(registerEmail.value)) {
+            showError(registerEmail, 'Email invalide');
+            isValid = false;
+        }
+        
+        if (!validatePassword(registerPassword.value)) {
+            showError(registerPassword, 'Le mot de passe doit contenir au moins 6 caractères');
+            isValid = false;
+        }
+        
+        if (!isValid) return;
+        
+        // Récupération des utilisateurs existants
+        let users = JSON.parse(localStorage.getItem('sneakfit_users')) || [];
+        
+        // Vérification si l'email existe déjà
+        if (users.some(user => user.email === registerEmail.value)) {
+            showError(registerEmail, 'Cet email est déjà utilisé');
+            return;
+        }
+        
+        // Création d'un nouvel utilisateur
+        const newUser = {
+            id: Date.now().toString(),
+            name: registerName.value.trim(),
+            email: registerEmail.value,
+            password: simpleHash(registerPassword.value),
+            createdAt: new Date().toISOString()
+        };
+        
+        // Ajout de l'utilisateur
+        users.push(newUser);
+        localStorage.setItem('sneakfit_users', JSON.stringify(users));
+        
+        // Affichage d'un message de succès
+        alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+        
+        // Redirection vers le formulaire de connexion
+        registerFormContainer.style.display = 'none';
+        loginFormContainer.style.display = 'flex';
+        document.getElementById('loginEmail').value = registerEmail.value;
+        
+        // Réinitialisation du formulaire
+        this.reset();
+    });
+    
+    // Traitement du formulaire de connexion
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearAllErrors(this);
+        
+        const loginEmail = document.getElementById('loginEmail');
+        const loginPassword = document.getElementById('loginPassword');
+        
+        // Validation des champs
+        let isValid = true;
+        
+        if (!validateEmail(loginEmail.value)) {
+            showError(loginEmail, 'Email invalide');
+            isValid = false;
+        }
+        
+        if (!loginPassword.value) {
+            showError(loginPassword, 'Le mot de passe est requis');
+            isValid = false;
+        }
+        
+        if (!isValid) return;
+        
+        // Récupération des utilisateurs
+        const users = JSON.parse(localStorage.getItem('sneakfit_users')) || [];
+        
+        // Recherche de l'utilisateur
+        const user = users.find(u => u.email === loginEmail.value);
+        
+        if (!user || user.password !== simpleHash(loginPassword.value)) {
+            showError(loginPassword, 'Email ou mot de passe incorrect');
+            return;
+        }
+        
+        // Création d'une session
+        const session = {
+            userId: user.id,
+            name: user.name,
+            email: user.email,
+            token: generateToken(),
+            expiresAt: Date.now() + (24 * 60 * 60 * 1000) // 24 heures
+        };
+        
+        // Stockage de la session
+        localStorage.setItem('sneakfit_session', JSON.stringify(session));
+        
+        // Mise à jour de l'interface utilisateur
+        updateUIAfterLogin(session);
+        
+        // Fermeture du formulaire
+        loginFormContainer.style.display = 'none';
+        
+        // Réinitialisation du formulaire
+        this.reset();
+        
+        // Message de bienvenue
+        alert(`Bienvenue, ${session.name} !`);
+    });
+    
+    // Mise à jour de l'interface après connexion
+    function updateUIAfterLogin(session) {
+        // Mise à jour de l'icône utilisateur
+        if (userIcon) {
+            userIcon.innerHTML = `<i class="fas fa-user"></i> <span class="user-name">${session.name.split(' ')[0]}</span>`;
+            userIcon.classList.add('logged-in');
+            
+            // Modifier le comportement du clic sur l'icône utilisateur
+            userIcon.removeEventListener('click', showLoginForm);
+            userIcon.addEventListener('click', showUserMenu);
+        }
+        
+        // Mise à jour du compteur de panier si nécessaire
+        updateCartCount();
+    }
+    
+    function showLoginForm(e) {
+        e.preventDefault();
+        loginFormContainer.style.display = 'flex';
+    }
+    
+    function showUserMenu(e) {
+        e.preventDefault();
+        // Ici vous pourriez afficher un menu utilisateur avec options (mon compte, déconnexion, etc.)
+        const userMenu = document.getElementById('userMenu') || createUserMenu();
+        userMenu.style.display = userMenu.style.display === 'block' ? 'none' : 'block';
+    }
+    
+    function createUserMenu() {
+        // Création d'un menu utilisateur
+        const session = JSON.parse(localStorage.getItem('sneakfit_session'));
+        const menu = document.createElement('div');
+        menu.id = 'userMenu';
+        menu.className = 'user-menu';
+        menu.innerHTML = `
+            <ul>
+                <li class="user-info">${session.name}</li>
+                <li><a href="#" id="logoutBtn">Déconnexion</a></li>
+            </ul>
+        `;
+        
+        document.querySelector('.nav-icons').appendChild(menu);
+        
+        // Ajout de l'événement de déconnexion
+        document.getElementById('logoutBtn').addEventListener('click', logout);
+        
+        return menu;
+    }
+    
+    // Fonction de déconnexion
+    function logout(e) {
+        if (e) e.preventDefault();
+        
+        // Suppression de la session
+        localStorage.removeItem('sneakfit_session');
+        
+        // Réinitialisation de l'interface
+        if (userIcon) {
+            userIcon.innerHTML = '<i class="fas fa-user"></i>';
+            userIcon.classList.remove('logged-in');
+            
+            // Rétablir le comportement original du clic
+            userIcon.removeEventListener('click', showUserMenu);
+            userIcon.addEventListener('click', showLoginForm);
+        }
+        
+        // Masquer le menu utilisateur s'il existe
+        const userMenu = document.getElementById('userMenu');
+        if (userMenu) {
+            userMenu.style.display = 'none';
+        }
+        
+        // Message
+        alert('Vous avez été déconnecté avec succès.');
+    }
+    
+    // Mise à jour du nombre d'articles dans le panier
+    function updateCartCount() {
+        const cartItems = JSON.parse(localStorage.getItem('sneakfit_cart')) || [];
+        const cartCountElement = document.querySelector('.cart-count');
+        
+        if (cartCountElement) {
+            cartCountElement.textContent = cartItems.reduce((total, item) => total + item.quantity, 0);
+        }
+    }
+    
+    // Vérification de la session au chargement
+    function checkSession() {
+        const session = JSON.parse(localStorage.getItem('sneakfit_session'));
+        
+        if (session && session.expiresAt > Date.now()) {
+            // Session valide, mettre à jour l'interface
+            updateUIAfterLogin(session);
+            
+            // Configurer l'écouteur d'événements pour le menu utilisateur
+            if (userIcon) {
+                userIcon.removeEventListener('click', showLoginForm);
+                userIcon.addEventListener('click', showUserMenu);
+            }
+        } else {
+            // Pas de session ou session expirée
+            if (session) {
+                localStorage.removeItem('sneakfit_session');
+            }
+            
+            // Configurer l'écouteur d'événements pour le formulaire de connexion
+            if (userIcon) {
+                userIcon.addEventListener('click', showLoginForm);
+            }
+        }
+    }
+    
+    // Initialiser l'interface au chargement de la page
+    checkSession();
+    updateCartCount();
+});
+
+// Styles CSS pour les formulaires et le menu utilisateur
+(function() {
+    const style = document.createElement('style');
+    style.textContent = `
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .input-error {
+            border-color: #e74c3c !important;
+        }
+        
+        .user-icon.logged-in {
+            color: #4CAF50;
+        }
+        
+        .user-name {
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        
+        .user-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            width: 200px;
+            z-index: 100;
+            display: none;
+        }
+        
+        .user-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .user-menu li {
+            padding: 0;
+        }
+        
+        .user-menu li.user-info {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            font-weight: bold;
+        }
+        
+        .user-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .user-menu a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .user-menu a#logoutBtn {
+            border-top: 1px solid #eee;
+            color: #e74c3c;
+        }
+    `;
+    document.head.appendChild(style);
+    })();
+    </script>
+    <script src="boutique.js"></script>
+</body>
+</html>

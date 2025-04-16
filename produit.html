@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SneakFit - Votre boutique en ligne spécialisée dans les sneakers tendance et les vêtements de sport de qualité">
+    <title>Détails du Produit | SneakFit</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .product-detail {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .product-gallery {
+            flex: 1;
+            min-width: 300px;
+        }
+        .product-main-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .product-thumbnails {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .product-thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .product-thumbnail:hover {
+            border-color: #007bff;
+        }
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        .product-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #2c3e50;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        .product-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .product-badge.bestseller {
+            background: #ff5722;
+        }
+        .product-badge.sale {
+            background: #4caf50;
+        }
+        .product-badge.populaire {
+            background: #9c27b0;
+        }
+        .product-badge.nouveau {
+            background: #2196f3;
+        }
+        .product-description {
+            margin: 20px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: 2px solid #25D366;
+        }
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            border-color: #128C7E;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+        .btn-outline:hover {
+            background: #007bff;
+            color: white;
+        }
+        .product-specs {
+            margin-top: 30px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .specs-table tr:nth-child(even) {
+            background: #f1f1f1;
+        }
+        .specs-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .specs-table td:first-child {
+            font-weight: bold;
+            width: 30%;
+        }
+        .breadcrumb {
+            padding: 15px 0;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .related-products {
+            margin-top: 50px;
+        }
+        .related-products h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .product-detail {
+                flex-direction: column;
+            }
+            .product-gallery, .product-info {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Votre en-tête de site ici -->
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Accueil</a> > <a href="boutique.html">Boutique</a> > <span id="breadcrumb-product">Détails du produit</span>
+        </div>
+
+        <div class="product-detail">
+            <div class="product-gallery">
+                <img id="main-image" src="" alt="" class="product-main-image">
+                <div class="product-thumbnails">
+                    <!-- Les miniatures seront ajoutées dynamiquement -->
+                </div>
+            </div>
+
+            <div class="product-info">
+                <span id="product-badge" class="product-badge" style="display: none;"></span>
+                <h1 class="product-title" id="product-title"></h1>
+                <p class="product-category" id="product-category"></p>
+                
+                <div class="product-price" id="product-price"></div>
+                
+                <div class="product-description" id="product-description"></div>
+
+                <div class="product-options" id="product-options">
+                    <!-- Options comme les tailles seront ajoutées dynamiquement -->
+                </div>
+
+                <div class="product-actions">
+                    <a id="whatsapp-btn" href="#" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Je suis intéressé
+                    </a>
+                    <a href="boutique.html" class="btn btn-outline">Voir d'autres produits</a>
+                </div>
+
+                <div class="product-specs">
+                    <h3>Caractéristiques</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <td>Marque</td>
+                            <td id="product-brand"></td>
+                        </tr>
+                        <tr>
+                            <td>Catégorie</td>
+                            <td id="product-category-spec"></td>
+                        </tr>
+                        <tr>
+                            <td>Prix</td>
+                            <td id="product-price-spec"></td>
+                        </tr>
+                        <tr>
+                            <td>Disponibilité</td>
+                            <td>En stock</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td id="product-contact"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <section class="related-products">
+            <h2>Vous pourriez aussi aimer</h2>
+            <div class="products-grid" id="related-products">
+                <!-- Produits similaires seront ajoutés dynamiquement -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Votre pied de page ici -->
+    </footer>
+
+    <script>
+        // Base de données des produits
+        const products = [
+            {
+                id: 1,
+                name: 'Nike Air Jordan',
+                category: 'sneakers',
+                price: 25000,
+                originalPrice: null,
+                badge: 'Nouveau',
+                image: 'images/nike1.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Sneakers Nike Air Jordan, un must-have pour les amateurs de style.'
+            },
+            // ... (tous vos autres produits ici)
+            // Je montre seulement le premier pour l'exemple, mais vous devriez tous les inclure
+            {
+            id: 2,
+            name: 'Adidas Campus',
+            category: 'sneakers',
+            price: 20000,
+            originalPrice: null,
+            badge: 'Best-seller',
+            image: 'images/adidas2.jpg',
+            whatsappNumber: '+241077564914',
+            description: 'Adidas Campus, confort et élégance pour votre quotidien.'
+            },
+            {
+                id: 3,
+                name: 'T-shirt Performance',
+                category: 'vetements',
+                price: 7000,
+                originalPrice: null,
+                badge: null,
+                image: 'images/jordans3.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'T-shirt technique pour vos séances d\'entraînement.'
+            },
+            {
+                id: 4,
+                name: 'Puma RS-X',
+                category: 'sneakers',
+                price: 15000,
+                originalPrice: 30000,
+                badge: '-50%',
+                image: 'images/puma1.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Puma RS-X, le style à moitié prix, ne manquez pas cette offre!'
+            },
+            {
+                id: 5,
+                name: 'Nike Air Force 1',
+                category: 'sneakers',
+                price: 25000,
+                originalPrice: null,
+                badge: 'Populaire',
+                image: 'images/jordan5.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Classique intemporel, le Nike Air Force 1.'
+            },
+            {
+                id: 6,
+                name: 'Short de sport',
+                category: 'vetements',
+                price: 5000,
+                originalPrice: 8000,
+                badge: '-37%',
+                image: 'images/short2.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Short léger pour vos activités sportives.'
+            },
+            {
+                id: 7,
+                name: 'Casquette Snapback',
+                category: 'accessories',
+                price: 4500,
+                originalPrice: null,
+                badge: null,
+                image: 'images/casquette 1.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Casquette ajustable pour un look streetwear.'
+            },
+            {
+                id: 8,
+                name: 'Chaussures de running',
+                category: 'running',
+                price: 22000,
+                originalPrice: null,
+                badge: 'Nouveau',
+                image: 'images/sneakers2.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Confort optimal pour vos séances de running.'
+            },
+            {
+                id: 9,
+                name: 'T-short Puma',
+                category: 'vetements',
+                price: 12000,
+                originalPrice: 15000,
+                badge: '-20%',
+                image: 'images/puma7.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Veste respirante pour vos entraînements.'
+            },
+            {
+                id: 10,
+                name: 'Gant',
+                category: 'accessories',
+                price: 4500,
+                originalPrice: null,
+                badge: null,
+                image: 'images/Gant 3.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Casquette ajustable pour un look streetwear.'
+            },
+            {
+                id: 11,
+                name: 'Tee-shirt Jordan',
+                category: 'vetements',
+                price: 12000,
+                originalPrice: 15000,
+                badge: '-20%',
+                image: 'images/jordans1.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Veste respirante pour vos entraînements.'
+            },
+            {
+                id: 12,
+                name: 'Sweat ',
+                category: 'vetements',
+                price: 20000,
+                originalPrice: 40000,
+                badge: '-50%',
+                image: 'images/sweats2.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Sweat léger pour vos activités sportives.'
+            },
+            {
+                id: 13,
+                name: 'Casquette Snapback',
+                category: 'accessories',
+                price: 4500,
+                originalPrice: null,
+                badge: null,
+                image: 'images/casquette 3.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Casquette ajustable pour un look streetwear.'
+            },
+            {
+                id: 14,
+                name: 'Chaussures de running',
+                category: 'running',
+                price: 20000,
+                originalPrice: null,
+                badge: 'Nouveau',
+                image: 'images/running8.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Confort optimal pour vos séances de running.'
+            },
+            {
+                id: 15,
+                name: 'Maillot',
+                category: 'vêtements',
+                price: 12000,
+                originalPrice: 15000,
+                badge: '-20%',
+                image: 'images/Maillot 2.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Maillot pour vos entraînements.'
+            },
+            {
+                id: 16,
+                name: 'Chaussette',
+                category: 'accessories',
+                price: 4500,
+                originalPrice: null,
+                badge: null,
+                image: 'images/CHAUSSETTE 1.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Paire de chaussette.'
+            },
+            {
+                id: 17,
+                name: 'Sweat',
+                category: 'vetements',
+                price: 15000,
+                originalPrice: 30000,
+                badge: '-50%',
+                image: 'images/sweats4.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Veste respirante pour vos entraînements.'
+            },
+            {
+                id: 18,
+                name: 'Sacs de sport',
+                category: 'accessories',
+                price: 15000,
+                originalPrice: null,
+                badge: null,
+                image: 'images/sac 3.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Sac spacieux pour transporter votre équipement.'
+            },
+            {
+                id: 19,
+                name: 'Sacs de sport',
+                category: 'accessories',
+                price: 15000,
+                originalPrice: null,
+                badge: null,
+                image: 'images/sac 2.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Sac spacieux pour transporter votre équipement.'
+            },
+            {
+                id: 20,
+                name: 'Nike Air Jordan',
+                category: 'sneakers',
+                price: 25000,
+                originalPrice: null,
+                badge: 'Nouveau',
+                image: 'images/jordan4.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Sneakers Nike Air Jordan, un must-have pour les amateurs de style.'
+            },
+            {
+                id: 21,
+                name: 'Sacs de sport',
+                category: 'accessories',
+                price: 10000,
+                originalPrice: null,
+                badge: null,
+                image: 'images/sac1.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Sac spacieux pour transporter votre équipement.'
+            },
+            {
+                id: 22,
+                name: 'Jogin',
+                category: 'vetements',
+                price: 15000,
+                originalPrice: 30000,
+                badge: '-50%',
+                image: 'images/Jogin 1.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Jogin respirante pour vos entraînements.'
+            },
+            {
+                id: 23,
+                name: 'Chaussures de running',
+                category: 'running',
+                price: 15000,
+                originalPrice: null,
+                badge: 'Nouveau',
+                image: 'images/running7.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Confort optimal pour vos séances de running.'
+            },
+            {
+                id: 24,
+                name: 'Nike Air Jordan 1',
+                category: 'sneakers',
+                price: 25000,
+                originalPrice: null,
+                badge: 'Populaire',
+                image: 'images/jordan6.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Classique intemporel, la Nike Air Jordan 1.'
+            },
+            {
+                id: 25,
+                name: 'Jogin',
+                category: 'vetements',
+                price: 15000,
+                originalPrice: 30000,
+                badge: '-50%',
+                image: 'images/Jogin 4.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Jogin respirante pour vos entraînements.'
+            },
+            {
+                id: 26,
+                name: 'Sacoche de sport',
+                category: 'accessories',
+                price: 8000,
+                originalPrice: null,
+                badge: null,
+                image: 'images/sac 5.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Sacoche spacieuse pour transporter votre équipement.'
+            },
+            {
+                id: 27,
+                name: 'Nike Air Force 1',
+                category: 'sneakers',
+                price: 25000,
+                originalPrice: null,
+                badge: 'Populaire',
+                image: 'images/pull2.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Classique intemporel, la Nike Air Force 1.'
+            },
+
+
+            {
+                id: 28,
+                name: 'Chaussures de running',
+                category: 'running',
+                price: 30000,
+                originalPrice: null,
+                badge: 'Nouveau',
+                image: 'images/running6.jpg',
+                whatsappNumber: '+241077564914',
+                description: 'Confort optimal pour vos séances de running.'
+            }
+        ];
+
+        // Fonction pour charger les données du produit
+        function loadProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+            
+            // Trouver le produit correspondant
+            const product = products.find(p => p.id === productId);
+            
+            if (product) {
+                // Mettre à jour le titre de la page
+                document.title = `${product.name} | NomDuSite`;
+                
+                // Mettre à jour le fil d'Ariane
+                document.getElementById('breadcrumb-product').textContent = product.name;
+                
+                // Image principale
+                document.getElementById('main-image').src = product.image;
+                document.getElementById('main-image').alt = product.name;
+                
+                // Badge
+                const badgeElement = document.getElementById('product-badge');
+                if (product.badge) {
+                    badgeElement.style.display = 'inline-block';
+                    badgeElement.textContent = product.badge;
+                    
+                    // Ajouter une classe en fonction du type de badge
+                    if (product.badge.includes('%')) {
+                        badgeElement.classList.add('sale');
+                    } else if (product.badge.toLowerCase() === 'best-seller') {
+                        badgeElement.classList.add('bestseller');
+                    } else if (product.badge.toLowerCase() === 'populaire') {
+                        badgeElement.classList.add('populaire');
+                    } else if (product.badge.toLowerCase() === 'nouveau') {
+                        badgeElement.classList.add('nouveau');
+                    }
+                } else {
+                    badgeElement.style.display = 'none';
+                }
+                
+                // Titre
+                document.getElementById('product-title').textContent = product.name;
+                
+                // Catégorie
+                document.getElementById('product-category').textContent = 
+                    product.category.charAt(0).toUpperCase() + product.category.slice(1);
+                document.getElementById('product-category-spec').textContent = 
+                    product.category.charAt(0).toUpperCase() + product.category.slice(1);
+                
+                // Prix
+                const priceElement = document.getElementById('product-price');
+                const priceSpecElement = document.getElementById('product-price-spec');
+                
+                if (product.originalPrice) {
+                    priceElement.innerHTML = `
+                        <span class="original-price">${product.originalPrice.toLocaleString()} Fcfa</span> 
+                        ${product.price.toLocaleString()} Fcfa
+                    `;
+                    priceSpecElement.innerHTML = `
+                        <span class="original-price">${product.originalPrice.toLocaleString()} Fcfa</span><br>
+                        <strong>${product.price.toLocaleString()} Fcfa</strong>
+                    `;
+                } else {
+                    priceElement.textContent = `${product.price.toLocaleString()} Fcfa`;
+                    priceSpecElement.textContent = `${product.price.toLocaleString()} Fcfa`;
+                }
+                
+                // Description
+                document.getElementById('product-description').textContent = product.description;
+                
+                // Bouton WhatsApp
+                const whatsappMessage = `Bonjour, je suis intéressé par le produit "${product.name}" (${window.location.href})`;
+                const whatsappUrl = `https://wa.me/${product.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                document.getElementById('whatsapp-btn').href = whatsappUrl;
+                
+                // Contact
+                document.getElementById('product-contact').innerHTML = `
+                    <a href="tel:${product.whatsappNumber}">${product.whatsappNumber}</a>
+                `;
+                
+                // Options (tailles, couleurs, etc.)
+                const optionsElement = document.getElementById('product-options');
+                
+                if (product.category === 'sneakers' || product.category === 'running') {
+                    optionsElement.innerHTML = `
+                        <div class="size-selector">
+                            <label for="size">Taille :</label>
+                            <select id="size" name="size">
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                            </select>
+                        </div>
+                    `;
+                } else if (product.category === 'vetements') {
+                    optionsElement.innerHTML = `
+                        <div class="size-selector">
+                            <label for="size">Taille :</label>
+                            <select id="size" name="size">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                    `;
+                } else {
+                    optionsElement.innerHTML = '';
+                }
+                
+                // Miniatures (pour cet exemple, on utilise la même image)
+                const thumbnailsElement = document.querySelector('.product-thumbnails');
+                thumbnailsElement.innerHTML = `
+                    <img src="${product.image}" alt="Vue 1" class="product-thumbnail" onclick="changeImage(this)">
+                `;
+                
+                // Produits similaires
+                loadRelatedProducts(product);
+            } else {
+                // Produit non trouvé
+                document.querySelector('main').innerHTML = `
+                    <div class="product-not-found">
+                        <h2>Produit non trouvé</h2>
+                        <p>Le produit que vous recherchez n'existe pas ou a été supprimé.</p>
+                        <a href="boutique.html" class="btn btn-primary">Retour à la boutique</a>
+                    </div>
+                `;
+            }
+        }
+        
+        // Fonction pour charger les produits similaires
+        function loadRelatedProducts(currentProduct) {
+            const relatedProducts = products
+                .filter(p => p.id !== currentProduct.id && p.category === currentProduct.category)
+                .slice(0, 4); // Prendre 4 produits maximum
+                
+            const relatedProductsElement = document.getElementById('related-products');
+            
+            if (relatedProducts.length > 0) {
+                relatedProductsElement.innerHTML = relatedProducts.map(product => `
+                    <div class="product-card">
+                        <div class="product-badge" style="${product.badge ? '' : 'display: none'}">${product.badge || ''}</div>
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <p class="product-category">${product.category}</p>
+                            <div class="product-price">
+                                ${product.originalPrice ? `<span class="original-price">${product.originalPrice.toLocaleString()} Fcfa</span>` : ''}
+                                ${product.price.toLocaleString()} Fcfa
+                            </div>
+                            <div class="product-actions">
+                                <a href="produit.html?id=${product.id}" class="btn btn-outline">Détails</a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                relatedProductsElement.innerHTML = '<p>Aucun produit similaire pour le moment.</p>';
+            }
+        }
+        
+        // Fonction pour changer l'image principale
+        function changeImage(element) {
+            document.getElementById('main-image').src = element.src;
+        }
+        
+        // Charger les détails du produit au chargement de la page
+        document.addEventListener('DOMContentLoaded', loadProductDetails);
+    </script>
+    
+    <!-- Ajouter Font Awesome pour l'icône WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>
